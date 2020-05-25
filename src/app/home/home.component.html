@@ -1,0 +1,48 @@
+<div class="top">
+  <h1>METEO</h1>
+  <h3>Check the weather in France !</h3>
+  <p style="text-align: center; margin-top: 30px;"><a  routerLink="/forecast">Go to forecast</a></p>
+
+</div>
+
+<div class="search">
+  <div class="inputbutt">
+    <div class="input">
+      <p id="phrase">City name</p>
+      <input type="text" [(ngModel)]="cityInput">
+    </div>
+    <div class="butt">
+      <button type="button" class="btn btn-primary" id="ok" (click)="getMeteo()">ok</button>
+    </div>
+  </div>
+
+  <div class="container result">
+
+    <div class="row" *ngIf="response">
+      <div class="col-md-6">
+        <p>Sky  : {{response?.weather[0].description}}</p>
+        <p>Wind : {{response?.wind.speed}} MPH</p>
+        <p>Pressure : {{response?.main.pressure}} HPS</p>
+      </div>
+      <div class="col-md-6">
+        <p>Felt temperature: {{response?.main.feels_like}}</p>
+        <p>Max temperature : {{response?.main.temp_max}}</p>
+        <p>Min temperature : {{response?.main.temp_min}}</p>
+      </div>
+
+
+    </div>
+  </div>
+  <div>
+
+
+  </div>
+</div>
+
+
+
+
+
+<div class="bottom">
+
+</div>

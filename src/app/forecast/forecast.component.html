@@ -1,0 +1,47 @@
+<div class="top">
+  <h1>METEO</h1>
+  <h3>Check the forecast in France !</h3>
+  <p style="text-align: center; margin-top: 30px;"><a routerLink="/">Go to homepage</a></p>
+
+</div>
+
+<div class="search">
+  <div class="inputbutt">
+    <div class="input">
+      <p id="phrase">City name</p>
+      <input type="text" [(ngModel)]="cityInput">
+    </div>
+    <div class="butt">
+      <button type="button" class="btn btn-primary" id="ok" (click)="getForecast()">ok</button>
+    </div>
+  </div>
+
+  <div class="result">
+
+    <div class="" *ngIf="response">
+
+      <div *ngFor="let x of response?.list" class="forecast">
+        <div class="info">
+          <p style="color: black; font-size: large;">Forecast date {{x?.dt_txt |date}}</p>
+          <p>Felt temperature {{x?.main.feels_like}}°C</p>
+          <p>Minimum temperature : {{x?.main.temp_min}}°C / Maximum temperature : {{x?.main.temp_max}}°C</p>
+          <p>Sky and clouds : {{x?.weather[0].description}} / {{x?.weather[0].main}}</p>
+          <p>Wind {{x.wind.speed}}MPH</p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+
+
+  </div>
+</div>
+
+
+
+
+
+<div class="bottom">
+
+</div>
